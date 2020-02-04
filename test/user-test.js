@@ -27,4 +27,8 @@ describe('User', function() {
     expect(User).to.be.a('function');
   });
 
+  it('should be an instance of User', () => {
+    expect(singleUser).to.be.an.instanceof(User);
+  });
+
 });
