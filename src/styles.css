@@ -1,0 +1,10 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.user-card {
+  background-color: teal;
+  width: 30%;
+  padding: 1%;
+
+}
