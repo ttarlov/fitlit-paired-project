@@ -2,7 +2,7 @@
 Please include a summary of the change:
 
 :tada: Initial commit
-:building_construction: HTML modifications/updates.
+:construction: HTML modifications/updates.
 :art: CSS modifications/updates.
 :crystal_ball: JS modifications/updates.
 
