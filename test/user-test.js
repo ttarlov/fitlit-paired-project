@@ -22,6 +22,7 @@ describe('User', function() {
     });
   });
 
+
   it('should be a function', () => {
 
     expect(User).to.be.a('function');
@@ -29,6 +30,13 @@ describe('User', function() {
 
   it('should be an instance of User', () => {
     expect(singleUser).to.be.an.instanceof(User);
+  });
+
+  describe('getFirstName Method', () => {
+
+    it('should return first name', () => {
+    expect(singleUser.getFirstName()).to.equal('Luisa');
+    });
   });
 
 });
