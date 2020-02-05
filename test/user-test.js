@@ -38,5 +38,4 @@ describe('User', function() {
     expect(singleUser.getFirstName()).to.equal('Luisa');
     });
   });
-
 });

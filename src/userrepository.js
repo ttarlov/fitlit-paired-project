@@ -20,7 +20,6 @@ class UserRepository {
     let avg = total / this.data.length;
     return avg;
   }
-
 }
 
 
