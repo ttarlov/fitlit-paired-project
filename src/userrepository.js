@@ -1,7 +1,6 @@
 class UserRepository {
-  constructor(data, id) {
+  constructor(data) {
     this.data = data;
-    this.id = id;
     this.friends = null;
   }
 
@@ -10,9 +9,9 @@ class UserRepository {
     return this.data.find(user => user.id === id);
   }
 
+  //need to loop through all of the users. grab their dailyStepGoal
+  //add them together and divide them by the number of users in the group.
   calculateAvgStepGoal() {
-    //need to loop through all of the users. grab their dailyStepGoal
-    //add them together and divide them by the number of users in the group.
     let total = 0;
     this.data.forEach(user => {
       return total+= user.dailyStepGoal;
