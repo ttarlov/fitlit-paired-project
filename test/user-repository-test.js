@@ -82,7 +82,14 @@ describe('UserRepository', function() {
     });
 
   });
-})
+
+  describe('calculateAvgStepGoal Method', function() {
+    it('should be able to calculate average step goal for a group of users', function() {
+      expect(userRepo.calculateAvgStepGoal()).to.equal(7000);
+
+    });
+  });
+});
 
 
 
