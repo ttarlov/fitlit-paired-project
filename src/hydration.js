@@ -30,10 +30,14 @@ class Hydration {
   };
 
   calculateWeeklyOz() {
+    let totalOz = this.user.reduce((total, day) => {
+       total.push({date:day.date, amount:day.numOunces})
+       return total
+     },[])
+     return totalOz
+  }
 
-  };
-
-};
+}
 // calculateAvgFluidOzConsumed() {
 //   let total = 0;
 //   this.data.forEach(user => {
