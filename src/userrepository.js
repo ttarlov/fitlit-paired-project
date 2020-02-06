@@ -12,12 +12,11 @@ class UserRepository {
   //need to loop through all of the users. grab their dailyStepGoal
   //add them together and divide them by the number of users in the group.
   calculateAvgStepGoal() {
-    let total = 0;
-    this.data.forEach(user => {
-      return total+= user.dailyStepGoal;
-    });
-    let avg = total / this.data.length;
-    return avg;
+    let totalStepGoal = this.data.reduce((acc, user) => {
+        acc+= user.dailyStepGoal
+        return acc;
+      },0);
+    return  totalStepGoal / this.data.length;
   }
 }
 
