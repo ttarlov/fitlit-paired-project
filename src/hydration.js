@@ -24,8 +24,9 @@ class Hydration {
 
   };
 
-  calculateDailyOz() {
-
+  calculateDailyOz(date) {
+    let selectedDay = this.user.find(day => day.date === date)
+    return selectedDay.numOunces;
   };
 
   calculateWeeklyOz() {
