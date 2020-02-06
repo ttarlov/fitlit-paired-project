@@ -41,10 +41,20 @@ beforeEach(() => {
       "date": "2019/06/21",
       "numOunces": 33
     },
-
+    {
+      "userID": 1,
+      "date": "2019/06/20",
+      "numOunces": 22
+    },
+    {
+      "userID": 1,
+      "date": "2019/06/21",
+      "numOunces": 37
+    },
   ];
 
   hydro = new Hydration(data, 2);
+  hydro2 = new Hydration(data, 1)
 });
 
 describe('Hydration', function() {
@@ -59,8 +69,11 @@ describe('Hydration', function() {
 
   describe('findUserHydroData Method', () => {
     it('should get all hydration data for a user by id', () => {
-      expect(hydro.findUserHydroData()).to.deep.equal(hydro.data);
+      expect(hydro.findUserHydroData()).to.deep.equal(hydro.user);
     });
+    it('should get all hydration data for another user', () => {
+      expect(hydro2.findUserHydroData()).to.deep.equal(hydro2.user);
+    })
   })
   describe('calculateAvgOzsPerDay Method', () => {
 
@@ -68,4 +81,10 @@ describe('Hydration', function() {
       expect(hydro.calculateAvgOzsPerDay()).to.equal(61);
     });
   })
+
+  describe('calculateDailyOz Method', () => {
+    it('should show how many fl oz they consumed for a specific day', () => {
+      expect(hydro.calculateDailyOz("2019/06/20")).to.deep.equal(29);
+    });
+  });
 });
