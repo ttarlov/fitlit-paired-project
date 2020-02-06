@@ -1,4 +1,4 @@
-let randomNumber = (Math.floor(Math.random() * 50));
+let randomNumber = (Math.ceil(Math.random() * 50));
 const userRepo = new UserRepository(userData)
 const user = new User(userData[`${randomNumber}`])
 
@@ -12,12 +12,16 @@ let userDailyStepGoal = document.querySelector('.user-daily-step-goal-js');
 let userFriends = document.querySelector('.user-friends-js');
 let stepGoalComparison = document.querySelector('.step-goal-comparison-js');
 
-welcomeName.innerHTML = `${user.getFirstName()}`
-userFullName.innerHTML = `${user.name}`
-userId.innerHTML = `${user.id}`
-userAddress.innerHTML = `${user.address}`
-userEmail.innerHTML = `${user.email}`
-userStrideLength.innerHTML = `${user.strideLength}`
-userDailyStepGoal.innerHTML = `${user.dailyStepGoal}`
-userFriends.innerHTML = `${user.friends}`
-stepGoalComparison.innerHTML = `${userRepo.calculateAvgStepGoal()}`
+displayUserInfo(user);
+
+function displayUserInfo(user) {
+  welcomeName.innerHTML = `${user.getFirstName()}`
+  userFullName.innerHTML = `${user.name}`
+  userId.innerHTML = `${user.id}`
+  userAddress.innerHTML = `${user.address}`
+  userEmail.innerHTML = `${user.email}`
+  userStrideLength.innerHTML = `${user.strideLength}`
+  userDailyStepGoal.innerHTML = `${user.dailyStepGoal}`
+  userFriends.innerHTML = `${user.friends}`
+  stepGoalComparison.innerHTML = `${userRepo.calculateAvgStepGoal()}`
+}
