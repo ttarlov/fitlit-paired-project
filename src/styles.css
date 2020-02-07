@@ -10,13 +10,37 @@
 
 } */
 
+@-webkit-keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+            transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+  }
+}
+@keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+            transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
 
 nav {
   height: 50px;
-  border: 1px solid red;
   color: white;
   font-size: 2em;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,8 +73,11 @@ grid-row-gap: 9px;
   border-radius: 3px;
 }
 
+
+
 .div3 {
   height: 433px
+
 }
 
 .div1 h3 {
@@ -64,9 +91,49 @@ grid-row-gap: 9px;
 .div2,
 .div4,
 .div3,
-.div5 {
+.div5,
+.div6 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.div1 {
+  -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: 0.1s;
+}
+
+.div2 {
+  -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: 0.2s;
+
+}
+
+.div3 {
+  -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: 0.3s;
+}
+
+.div4 {
+  -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: 0.4s;
+}
+
+.div5{
+  -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: 0.5s;
+
+}
+
+.div6 {
+  -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: 0.6s;
+
 }
