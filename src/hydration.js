@@ -30,11 +30,11 @@ class Hydration {
   };
 
   calculateWeeklyOz() {
-    let totalOz = this.user.reduce((total, day) => {
+    let totalWeeklyOz = this.user.reduce((total, day) => {
        total.push({date:day.date, amount:day.numOunces})
        return total
      },[])
-     return totalOz
+     return totalWeeklyOz
   }
 
 }
