@@ -16,10 +16,8 @@ class Hydration {
     let totalOz = this.user.reduce((total, day) => {
         total += day.numOunces
         // total[day.date] = day.numOunces
-
         return total
       },0);
-
     return Math.floor(totalOz/this.user.length)
 
   };
@@ -29,23 +27,12 @@ class Hydration {
     return selectedDay.numOunces;
   };
 
-  calculateWeeklyOz() {
-    let totalWeeklyOz = this.user.reduce((total, day) => {
-       total.push({date:day.date, amount:day.numOunces})
-       return total
-     },[])
-     return totalWeeklyOz
+  calculateWeeklyOz(date) {
+    let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
+    return this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
   }
+};
 
-}
-// calculateAvgFluidOzConsumed() {
-//   let total = 0;
-//   this.data.forEach(user => {
-//     return total+= user.dailyStepGoal;
-//   });
-//   let avg = total / this.data.length;
-//   return avg;
-// }
 
 if (typeof module !== 'undefined') {
   module.exports = Hydration;
