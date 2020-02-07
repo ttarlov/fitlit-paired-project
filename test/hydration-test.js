@@ -87,4 +87,12 @@ describe('Hydration', function() {
       expect(hydro.calculateDailyOz("2019/06/20")).to.deep.equal(29);
     });
   });
+
+  describe('calculateWeeklyOz Method', () => {
+
+    it('should calculate how many fl oz consumed each day over the course of a week', () => {
+      expect(hydro.calculateWeeklyOz()).to.deep.equal([{ date: '2019/06/15', amount: 55 },{ date: '2019/06/16', amount: 63 },{ date: '2019/06/17', amount: 73 },{ date: '2019/06/18', amount: 85 },{ date: '2019/06/19', amount: 93 },{ date: '2019/06/20', amount: 29 },{ date: '2019/06/21', amount: 33 }]);
+    });
+  })
+
 });
