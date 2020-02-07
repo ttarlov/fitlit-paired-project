@@ -14,11 +14,16 @@
 nav {
   height: 50px;
   border: 1px solid red;
+  color: white;
+  font-size: 2em;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
-  background-color: #323A44;
+  background-color: teal;
 }
 
 .parent {
