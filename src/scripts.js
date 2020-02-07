@@ -4,7 +4,7 @@ const user = new User(userData[`${randomNumber}`])
 
 let welcomeName = document.querySelector('.user-first-name-js');
 let userFullName = document.querySelector('.user-full-name-js');
-let userId = document.querySelector('.user-id-js');
+// let userId = document.querySelector('.user-id-js');
 let userAddress = document.querySelector('.user-address-js');
 let userEmail = document.querySelector('.user-email-js');
 let userStrideLength = document.querySelector('.user-stride-length-js');
@@ -17,7 +17,7 @@ displayUserInfo(user);
 function displayUserInfo(user) {
   welcomeName.innerHTML = `${user.getFirstName()}`
   userFullName.innerHTML = `${user.name}`
-  userId.innerHTML = `${user.id}`
+  // userId.innerHTML = `${user.id}`
   userAddress.innerHTML = `${user.address}`
   userEmail.innerHTML = `${user.email}`
   userStrideLength.innerHTML = `${user.strideLength}`
