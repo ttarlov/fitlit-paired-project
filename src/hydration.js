@@ -2,8 +2,6 @@ class Hydration {
   constructor(hydrationData, id) {
     this.data = hydrationData;
     this.id = id;
-  // this.date = hydrationData.date;
-  // this.numOunces = hydrationData.numOunces;
     this.user = this.findUserHydroData();
   };
 
@@ -15,7 +13,6 @@ class Hydration {
   calculateAvgOzsPerDay() {
     let totalOz = this.user.reduce((total, day) => {
         total += day.numOunces
-        // total[day.date] = day.numOunces
         return total
       },0);
     return Math.floor(totalOz/this.user.length)
