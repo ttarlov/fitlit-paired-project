@@ -147,6 +147,14 @@ describe('Sleep', function() {
     it('should get all hydration data for another user', () => {
       expect(sleep2.findUserSleepData()).to.deep.equal(sleep2.user);
     })
-  })
+  });
+
+  describe('calculateAvgSleepQuality Method', function(){
+    it('Should calculate average sleep quality per day over all time ', function(){
+      expect(sleep.calculateAvgSleepQuality()).to.equal()
+    });
+
+  });
+
 
 });
