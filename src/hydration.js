@@ -6,7 +6,7 @@ class Hydration {
   };
 
   findUserHydroData() {
-    return this.data.filter(user => user.userID === this.id)
+    return this.data.filter(user => user.userID === this.id);
 
   }
 
