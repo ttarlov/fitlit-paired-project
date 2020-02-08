@@ -93,7 +93,7 @@ beforeEach(() => {
       "userID": 2,
       "date": "2019/06/20",
       "hoursSlept": 4.6,
-      "sleepQuality": 2.9
+      "sleepQuality": 2.8
     },
     {
       "userID": 2,
@@ -154,22 +154,29 @@ describe('Sleep', function() {
       expect(sleep.calculateAvgSleepQuality()).to.equal('3.27')
     });
 
-      it('Should calculate average sleep quality per day over all time for another user', function(){
-        expect(sleep2.calculateAvgSleepQuality()).to.equal('2.44')
+    it('Should calculate average sleep quality per day over all time for another user', function(){
+        expect(sleep2.calculateAvgSleepQuality()).to.equal('2.43')
       });
+    });
 
-  describe('calculateSleepByDay Method', function(){
+  describe('calculateHoursSleptByDay Method', function(){
     it('should calculate daily sleep based on date', function(){
-      expect(sleep.calculateSleepByDay("2019/06/20")).to.equal(9.6)
+      expect(sleep.calculateHoursSleptByDay("2019/06/20")).to.equal(9.6)
     });
 
     it('should calculate daily sleep based on date for another user', function(){
-      expect(sleep2.calculateSleepByDay("2019/06/20")).to.equal(4.6)
+      expect(sleep2.calculateHoursSleptByDay("2019/06/20")).to.equal(4.6)
     });
-
   });
 
+  describe('calculateQualityOfSleepByDay Method', function(){
+    it('should calculate daily sleep quality based on date', function(){
+      expect(sleep.calculateQualityOfSleepByDay("2019/06/20")).to.equal(2.9)
+    });
 
+    it('should calculate daily sleep quality based on date for another user', function(){
+      expect(sleep2.calculateQualityOfSleepByDay("2019/06/20")).to.equal(2.8)
+    });
   });
 
 
