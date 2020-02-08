@@ -1,30 +1,47 @@
 <!DOCTYPE html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
-    <title>Fit Lit</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>FITLIT</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-    <title>Activity Tracker</title>
   </head>
+  <html>
   <body>
-    <header>
-      <h1>Activity Tracker</h1>
+    <nav>
       <h3>Welcome <span class="user-first-name-js"></span>!</h3>
-    </header>
-    <main>
-      <section class="user-card user-card-js">
-        <p>Name: <span class="user-full-name-js"></span></p>
-        <p>ID: <span class="user-id-js"></span></p>
-        <p>Address: <span class="user-address-js"></span></p>
-        <p>email: <span class="user-email-js"></span></p>
-        <p>Stride Length: <span class="user-stride-length-js"></span></p>
-        <p>Daily Step Goal: <span class="user-daily-step-goal-js"></span></p>
-        <p>Other People's Average Step Goal: <span class="step-goal-comparison-js"></span></p>
-        <p>Friends: <span class="user-friends-js"></span></p>
+    </nav>
 
-      </section>
-    </main>
+    <div class="parent">
+    <div class="tile div1">
+      <h3>Full Name: <span class="user-full-name-js"></span></h3>
+      <h3>Address: <span class="user-address-js"></span></h3>
+      <h3>Email: <span class="user-email-js"></span></h3>
+      </div>
+    <div class="tile div2">
+      <h3>Stride Length: <span class="user-stride-length-js"></span> </h3>
+    </div>
+    <div class="tile div3">
+      <h3>Friends:</h3>
+      <h3><span class="user-friends-js"></span></h3>
+    </div>
+    <div class="tile div4">
+      <h3>Daily Step Goal: <span class="user-daily-step-goal-js"></span></h3>
+    </div>
+    <div class="tile div5">
+      <h3>Other People's Average Step Goal:</h3>
+      <h3><span class="step-goal-comparison-js"></span></h3>
+    </div>
+    <div class="tile div6">
+      <h3>Water Consumed Today: <span class="water-consumed-by-day-js"></span></h3>
+    </div>
+    <div class="tile div7">
+      <h3>Water Consumed This Week:<span class="water-consumed-by-week-js"></span></h3>
+    </div>
+    </div>
+
     <script type="text/javascript" src="../data/users.js"></script>
     <script type="text/javascript" src="../src/user.js"></script>
     <script type="text/javascript" src="../src/userrepository.js"></script>

@@ -46,7 +46,7 @@ beforeEach(() => {
       ]
     }
   ];
-  userRepo = new UserRepository(data, 28);
+  userRepo = new UserRepository(data);
 });
 
 
@@ -64,19 +64,7 @@ describe('UserRepository', function() {
   describe('getUserDataById Method', function() {
 
     it('should be able to get user data by id', function() {
-      expect(userRepo.getUserDataById(28)).to.deep.equal({
-        "id": 28,
-        "name": "Noemi Huels",
-        "address": "5437 Barton Oval, Caesarview RI 88637",
-        "email": "Geovany.Jaskolski@hotmail.com",
-        "strideLength": 3.3,
-        "dailyStepGoal": 2000,
-        "friends": [
-          18,
-          16,
-          47
-        ]
-      });
+      expect(userRepo.getUserDataById(28)).to.equal(data[1]);
     });
   });
 
