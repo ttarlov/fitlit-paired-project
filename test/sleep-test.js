@@ -150,9 +150,25 @@ describe('Sleep', function() {
   });
 
   describe('calculateAvgSleepQuality Method', function(){
-    it('Should calculate average sleep quality per day over all time ', function(){
-      expect(sleep.calculateAvgSleepQuality()).to.equal()
+    it('Should calculate average sleep quality per day over all time', function(){
+      expect(sleep.calculateAvgSleepQuality()).to.equal('3.27')
     });
+
+      it('Should calculate average sleep quality per day over all time for another user', function(){
+        expect(sleep2.calculateAvgSleepQuality()).to.equal('2.44')
+      });
+
+  describe('calculateSleepByDay Method', function(){
+    it('should calculate daily sleep based on date', function(){
+      expect(sleep.calculateSleepByDay("2019/06/20")).to.equal(9.6)
+    });
+
+    it('should calculate daily sleep based on date for another user', function(){
+      expect(sleep2.calculateSleepByDay("2019/06/20")).to.equal(4.6)
+    });
+
+  });
+
 
   });
 
