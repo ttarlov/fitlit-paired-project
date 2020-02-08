@@ -125,9 +125,16 @@ beforeEach(() => {
       "hoursSlept": 5.9,
       "sleepQuality": 1.6
     },
+    {
+      "userID": 3,
+      "date": "2019/06/23",
+      "hoursSlept": 11.1,
+      "sleepQuality": 3.4
+    },
   ];
   sleep = new Sleep(data, 1);
-  sleep2 = new Sleep(data,2);
+  sleep2 = new Sleep(data, 2);
+  sleep3 = new Sleep(data, 3)
 });
 
 describe('Sleep', function() {
@@ -204,4 +211,11 @@ describe('Sleep', function() {
       {userID: 2, date: '2019/06/23', hoursSlept: 10.1, sleepQuality: 1.3}])
     });
   });
+
+  describe('findMostRestedUserByDate Method', function() {
+
+    it('should be able to find the user that slept the most hours by date', () => {
+      expect(sleep.findMostRestedUserByDate('2019/06/23')).to.deep.equal({ userID: 3, date: '2019/06/23', hoursSlept: 11.1, sleepQuality: 3.4 })
+    })
+  })
 })
