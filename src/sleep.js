@@ -27,6 +27,11 @@ class Sleep {
     return selectedDay.sleepQuality;
   }
 
+  calculateWeeklySleep(date) {
+    let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
+      return this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
+  }
+
 };
 
 
