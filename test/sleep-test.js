@@ -179,5 +179,29 @@ describe('Sleep', function() {
     });
   });
 
+  describe('calculateWeeklySleep Method', () => {
 
-});
+    it('should calculate how many hours slept each day over the course of a week', () => {
+      expect(sleep.calculateWeeklySleep('2019/06/23')).to.deep.equal([
+  {userID: 1, date: '2019/06/17', hoursSlept: 10.8, sleepQuality: 4.7},
+  { userID: 1, date: '2019/06/18', hoursSlept: 5.4, sleepQuality: 3 },
+  { userID: 1, date: '2019/06/19', hoursSlept: 4.1, sleepQuality: 3.6 },
+  { userID: 1, date: '2019/06/20', hoursSlept: 9.6, sleepQuality: 2.9 },
+  { userID: 1, date: '2019/06/21', hoursSlept: 5.1, sleepQuality: 2.6 },
+  { userID: 1, date: '2019/06/22', hoursSlept: 8.1, sleepQuality: 3.5 },
+  { userID: 1, date: '2019/06/23', hoursSlept: 8.9, sleepQuality: 2.2 }
+])
+    });
+
+    it('should calculate how many hours slept each day over the course of a week', () => {
+      expect(sleep2.calculateWeeklySleep('2019/06/23')).to.deep.equal([
+      { userID: 2, date: '2019/06/17', hoursSlept: 8, sleepQuality: 3.4 },
+      {userID: 2, date: '2019/06/18', hoursSlept: 10.1, sleepQuality: 1.8},
+      { userID: 2, date: '2019/06/19', hoursSlept: 6.9, sleepQuality: 1.2 },
+      { userID: 2, date: '2019/06/20', hoursSlept: 4.6, sleepQuality: 2.8 },
+      { userID: 2, date: '2019/06/21', hoursSlept: 6.1, sleepQuality: 3.5 },
+      { userID: 2, date: '2019/06/22', hoursSlept: 4.7, sleepQuality: 4 },
+      {userID: 2, date: '2019/06/23', hoursSlept: 10.1, sleepQuality: 1.3}])
+    });
+  });
+})
