@@ -233,6 +233,11 @@ describe('Sleep', function() {
       expect(sleep.calculateTotalAvgHoursSlept()).to.equal('7.23')
     });
 
+    it('Should calculate all-time average hours slept for another user', function(){
+      expect(sleep2.calculateTotalAvgHoursSlept()).to.equal('6.69')
+    });
+
+
   });
 
 
