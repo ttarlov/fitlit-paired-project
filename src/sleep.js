@@ -54,7 +54,7 @@ class Sleep {
   }
 
   calculateTotalHoursSleptInAWeek(date) {
-
+    
   }
   };
 
