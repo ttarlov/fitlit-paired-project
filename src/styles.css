@@ -57,7 +57,7 @@ body {
 .parent {
 display: grid;
 grid-template-columns: repeat(4, 1fr);
-grid-template-rows: repeat(3, 1fr);
+/* grid-template-rows: repeat(3, 1fr); */
 grid-column-gap: 10px;
 grid-row-gap: 9px;
 }
@@ -71,25 +71,11 @@ grid-row-gap: 9px;
 
 .tile {
   width: auto;
-  height: 100%;
+  height: auto;
   background-color: #FFFFFF;
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   border-radius: 3px;
-}
-
-
-
-.div3 {
-  height: 783px
-
-}
-
-.div1 h3 {
-  margin-left: 10px;
-}
-
-.div1 h3:nth-child(1) {
-  font-size: 1.5em;
+  overflow: scroll;
 }
 
 .div2,
@@ -103,6 +89,20 @@ grid-row-gap: 9px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.div1 h3 {
+  margin-left: 10px;
+}
+
+.div1 h3:nth-child(1) {
+  font-size: 1.5em;
+}
+
+
+.div3 {
+  height: 783px;
+  justify-content: flex-start;
 }
 
 .div1 {
