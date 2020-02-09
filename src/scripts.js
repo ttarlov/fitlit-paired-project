@@ -19,6 +19,15 @@ let lastWeekSleep = document.querySelector('.last-week-sleep-js');
 let recomendedSleep = document.querySelector('.sleep-percentage-js')
 let avgSleepQuality = document.querySelector('.avg-sleep-quality-js')
 let avgHoursSleptAllTime = document.querySelector('.all-time-avg-hours-slept-js')
+let parentDiv = document.querySelector('.parent')
+
+parent.addEventListener('click', makeItShake);
+
+function makeItShake(event) {
+  if (event.target.classList.contains('tile')) {
+    event.target.closest('.tile').classList.toggle('vibe')
+  }
+}
 
 displayUserInfo(user);
 displayWaterConsumtion();
