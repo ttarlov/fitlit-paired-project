@@ -2,6 +2,7 @@ let randomNumber = ((Math.ceil(Math.random() * 50)));
 const userRepo = new UserRepository(userData)
 const user = new User(userData[`${randomNumber -1}`])
 const hydration = new Hydration(hydrationData, randomNumber)
+const sleep = new Sleep(sleepData, randomNumber)
 let welcomeName = document.querySelector('.user-first-name-js');
 let userFullName = document.querySelector('.user-full-name-js');
 let userAddress = document.querySelector('.user-address-js');
@@ -12,10 +13,15 @@ let userFriends = document.querySelector('.user-friends-js');
 let stepGoalComparison = document.querySelector('.step-goal-comparison-js');
 let waterConsumedByDay = document.querySelector('.water-consumed-by-day-js');
 let waterConsumedByWeek = document.querySelector('.water-consumed-by-week-js')
+let hoursSlept = document.querySelector('.hours-slept-js')
+let sleepQuality = document.querySelector('.sleep-quality-js')
+
 
 displayUserInfo(user);
 
 function displayUserInfo(user) {
+  sleepQuality.innerHTML = `${sleep.calculateQualityOfSleepByDay("2019/09/22")} / 5`
+  hoursSlept.innerHTML = `${sleep.calculateHoursSleptByDay("2019/09/22")}`
   welcomeName.innerHTML = `${user.getFirstName()}`;
   userFullName.innerHTML = `${user.name}`;
   userAddress.innerHTML = `${user.address}`;
