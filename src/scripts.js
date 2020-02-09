@@ -17,8 +17,8 @@ let hoursSlept = document.querySelector('.hours-slept-js');
 let sleepQuality = document.querySelector('.sleep-quality-js');
 let lastWeekSleep = document.querySelector('.last-week-sleep-js');
 let recomendedSleep = document.querySelector('.sleep-percentage-js')
-let avgSleepQuality = document.querySelector('.avg-sleep-quality')
-
+let avgSleepQuality = document.querySelector('.avg-sleep-quality-js')
+let avgHoursSleptAllTime = document.querySelector('.all-time-avg-hours-slept-js')
 
 displayUserInfo(user);
 displayWaterConsumtion();
@@ -34,6 +34,7 @@ function displayUserInfo(user) {
 
 
 function displaySleepData() {
+  avgHoursSleptAllTime.innerHTML = `${sleep.calculateTotalAvgHoursSlept()} hrs`
   avgSleepQuality.innerHTML = `${(((sleep.calculateAvgSleepQuality())/5)*100).toFixed(2)}%`
   recomendedSleep.innerHTML = `${sleep.calculatePercentageOfRecommendedSleep("2019/09/22")}`
   sleepQuality.innerHTML = `${(((sleep.calculateQualityOfSleepByDay("2019/09/22"))/5)*100).toFixed(2)} %`;
