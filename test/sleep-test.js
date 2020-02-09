@@ -217,5 +217,24 @@ describe('Sleep', function() {
     it('should be able to find the user that slept the most hours by date', () => {
       expect(sleep.findMostRestedUserByDate('2019/06/23')).to.deep.equal({ userID: 3, date: '2019/06/23', hoursSlept: 11.1, sleepQuality: 3.4 })
     })
-  })
+  describe('calculatePercentageOfRecommendedSleep Method', function(){
+    it('Should calcualte total percentage of hours slept in a week time vs recomended amount', function(){
+      expect(sleep.calculatePercentageOfRecommendedSleep('2019/06/23')).to.equal('92.86%')
+    });
+    it('Should calcualte percentage of total hours slept in a week time vs recomended amount', function(){
+      expect(sleep2.calculatePercentageOfRecommendedSleep('2019/06/23')).to.equal('90.18%')
+    });
+
+  });
+
+  describe('calculateTotalAvgHoursSlept Method', function(){
+
+    it('Should calculate all-time average hours slept', function(){
+      expect(sleep.calculateTotalAvgHoursSlept()).to.equal('7.23')
+    });
+
+  });
+
+
+  });
 })
