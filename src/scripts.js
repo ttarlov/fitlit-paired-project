@@ -48,17 +48,58 @@ function displaySleepData() {
   recomendedSleep.innerHTML = `${sleep.calculatePercentageOfRecommendedSleep("2019/09/22")}`
   sleepQuality.innerHTML = `${(((sleep.calculateQualityOfSleepByDay("2019/09/22"))/5)*100).toFixed(2)} %`;
   hoursSlept.innerHTML = `${sleep.calculateHoursSleptByDay("2019/09/22")}`;
-  lastWeekSleep.innerHTML =
-  `<p><u><span>Date </span><span> : Hours Slept</span> : <span>Sleep Quality</span></u></p>
-  <p><span>${sleep.calculateWeeklySleep('2019/09/22')[0].date}</span><span> : ${sleep.calculateWeeklySleep('2019/09/22')[0].hoursSlept} hrs</span> : <span>${((sleep.calculateWeeklySleep('2019/09/22')[0].sleepQuality / 5) * 100).toFixed(0)}%</span></p>
-  <p><span>${sleep.calculateWeeklySleep('2019/09/22')[1].date}</span><span> : ${sleep.calculateWeeklySleep('2019/09/22')[1].hoursSlept} hrs</span> : <span>${((sleep.calculateWeeklySleep('2019/09/22')[1].sleepQuality / 5) * 100).toFixed(0)}%</span></p>
-  <p><span>${sleep.calculateWeeklySleep('2019/09/22')[2].date}</span><span> : ${sleep.calculateWeeklySleep('2019/09/22')[2].hoursSlept} hrs</span> : <span>${((sleep.calculateWeeklySleep('2019/09/22')[2].sleepQuality / 5) * 100).toFixed(0)}%</span></p>
-  <p><span>${sleep.calculateWeeklySleep('2019/09/22')[3].date}</span><span> : ${sleep.calculateWeeklySleep('2019/09/22')[3].hoursSlept} hrs</span> : <span>${((sleep.calculateWeeklySleep('2019/09/22')[3].sleepQuality / 5) * 100).toFixed(0)}%</span></p>
-  <p><span>${sleep.calculateWeeklySleep('2019/09/22')[4].date}</span><span> : ${sleep.calculateWeeklySleep('2019/09/22')[4].hoursSlept} hrs</span> : <span>${((sleep.calculateWeeklySleep('2019/09/22')[4].sleepQuality / 5) * 100).toFixed(0)}%</span></p>
-  <p><span>${sleep.calculateWeeklySleep('2019/09/22')[5].date}</span><span> : ${sleep.calculateWeeklySleep('2019/09/22')[5].hoursSlept} hrs</span> : <span>${((sleep.calculateWeeklySleep('2019/09/22')[5].sleepQuality / 5) * 100).toFixed(0)}%</span></p>
-  <p><span>${sleep.calculateWeeklySleep('2019/09/22')[6].date}</span><span> : ${sleep.calculateWeeklySleep('2019/09/22')[6].hoursSlept} hrs</span> : <span>${((sleep.calculateWeeklySleep('2019/09/22')[6].sleepQuality / 5) * 100).toFixed(0)}%</span></p>
+  lastWeekSleep.innerHTML = `
+  <table class="sleep-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Hours Slept</th>
+        <th>Sleep Quality</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[0].date}</td>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[0].hoursSlept}</td>
+        <td>${((sleep.calculateWeeklySleep('2019/09/22')[0].sleepQuality / 5) * 100).toFixed(0)}%</td>
+      </tr>
+      <tr>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[1].date}</td>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[1].hoursSlept}</td>
+        <td>${((sleep.calculateWeeklySleep('2019/09/22')[1].sleepQuality / 5) * 100).toFixed(0)}%</td>
+      </tr>
+      <tr>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[2].date}</td>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[2].hoursSlept}</td>
+        <td>${((sleep.calculateWeeklySleep('2019/09/22')[2].sleepQuality / 5) * 100).toFixed(0)}%</td>
+      </tr>
+      <tr>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[3].date}</td>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[3].hoursSlept}</td>
+        <td>${((sleep.calculateWeeklySleep('2019/09/22')[3].sleepQuality / 5) * 100).toFixed(0)}%</td>
+      </tr>
+      <tr>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[4].date}</td>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[4].hoursSlept}</td>
+        <td>${((sleep.calculateWeeklySleep('2019/09/22')[4].sleepQuality / 5) * 100).toFixed(0)}%</td>
+      </tr>
+      <tr>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[5].date}</td>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[5].hoursSlept}</td>
+        <td>${((sleep.calculateWeeklySleep('2019/09/22')[5].sleepQuality / 5) * 100).toFixed(0)}%</td>
+      </tr>
+      <tr>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[6].date}</td>
+        <td>${sleep.calculateWeeklySleep('2019/09/22')[6].hoursSlept}</td>
+        <td>${((sleep.calculateWeeklySleep('2019/09/22')[6].sleepQuality / 5) * 100).toFixed(0)}%</td>
+      </tr>
+    </tbody>
+  </table>
   `
 }
+
+
+
 
 function displayStepInfo() {
   userStrideLength.innerHTML = `${user.strideLength}`;
@@ -77,4 +118,46 @@ function displayWaterConsumtion() {
   <p><span>${hydration.calculateWeeklyOz("2019/09/22")[4].date}</span><span> : ${hydration.calculateWeeklyOz("2019/09/22")[4].numOunces} ozs</span></p>
   <p><span>${hydration.calculateWeeklyOz("2019/09/22")[5].date}</span><span> : ${hydration.calculateWeeklyOz("2019/09/22")[5].numOunces} ozs</span></p>
   <p><span>${hydration.calculateWeeklyOz("2019/09/22")[6].date}</span><span> : ${hydration.calculateWeeklyOz("2019/09/22")[6].numOunces} ozs</span></p>`
+
+waterConsumedByWeek.innerHTML = `
+<table class="water-table">
+<thead>
+  <tr>
+    <th>Date</th>
+    <th>Ounces</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[0].date}</td>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[0].numOunces}</td>
+  </tr>
+  <tr>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[1].date}</td>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[1].numOunces}</td>
+  </tr>
+  <tr>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[2].date}</td>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[2].numOunces}</td>
+  </tr>
+  <tr>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[3].date}</td>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[3].numOunces}</td>
+  </tr>
+  <tr>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[4].date}</td>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[4].numOunces}</td>
+  </tr>
+  <tr>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[5].date}</td>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[5].numOunces}</td>
+  </tr>
+  <tr>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[6].date}</td>
+    <td>${hydration.calculateWeeklyOz("2019/09/22")[6].numOunces}</td>
+  </tr>
+</tbody>
+</table>
+`
+
 }

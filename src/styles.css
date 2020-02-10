@@ -41,9 +41,15 @@ nav {
   color: white;
   font-size: 2em;
   margin-bottom: 20px;
+  margin-left: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+
+.first-name {
+  color: purple;
+  text-transform: uppercase;
 }
 
 body {
@@ -212,4 +218,47 @@ grid-row-gap: 9px;
     -webkit-transform: translate(0);
             transform: translate(0);
   }
+}
+
+table.sleep-table {
+  margin-left: 35px;
+  width: 80%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  color: #000000;
+}
+
+table.sleep-table td, table.sleep-table th {
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  padding: 3px;
+}
+
+table.sleep-table thead {
+  background-color: #ffcc00;
+}
+
+table.water-table {
+  width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  color: #000000;
+}
+
+table.water-table td, table.water-table th {
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  padding: 3px;
+}
+
+table.water-table thead {
+  background-color: #ffcc00;
 }
