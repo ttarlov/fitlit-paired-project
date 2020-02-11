@@ -29,12 +29,12 @@ class Activity {
       acc += day.minutesActive
       return acc
     },0)
-    return (weeklyTotal / 7).toFixed(2)
+    return (weeklyTotal / 7).toFixed(2);
   }
 
   findIfStepGoalWasAchieved(date, user) {
     let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
-    let dailyStepGoal = user.dailyStepGoal
+    let dailyStepGoal = user.dailyStepGoal;
     let singleDayActivity = this.user.find(day => day.date === date)
     let numStepsToday = singleDayActivity.numSteps
       if (numStepsToday > dailyStepGoal) {
@@ -42,9 +42,19 @@ class Activity {
       } else {
         return 'Pick up the pace, lazy bones!'
       }
-
   }
 
+  findDaysStepGoalWasExceeded(user) {
+    let greatDays = [];
+    let stepGoal = user.dailyStepGoal;
+    let pumpkin = this.user.forEach(day => {
+      if(day.numSteps >= stepGoal) {
+      greatDays.push(day.date)
+      }
+    })
+    console.log(greatDays);
+    return greatDays;
+  }
 }
 
 if (typeof module !== 'undefined') {
