@@ -22,6 +22,15 @@ class Activity {
     return selectedDay.minutesActive
   }
 
+  calculateWeeklyAverageActivity(date, user) {
+    let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
+    let weeklyData = this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
+    let weeklyTotal = weeklyData.reduce((acc, day) => {
+      acc += day.minutesActive
+      return acc
+    },0)
+    return (weeklyTotal / 7).toFixed(2)
+  }
 
 }
 
