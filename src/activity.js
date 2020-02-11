@@ -17,6 +17,11 @@ class Activity {
     return miles.toFixed(2)
   }
 
+  calculateActiveMinutes(date, user) {
+    let selectedDay = this.user.find(day => day.date === date)
+    return selectedDay.minutesActive
+  }
+
 
 }
 
