@@ -268,6 +268,14 @@ describe('Activity', function() {
     })
   })
 
+  describe('getAvgStairsClimbedForAll method', () => {
+    it('Find average stairs climed for all users on a specific day', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.getAvgStairsClimbedForAll('2019/06/15')).to.equal('2019/06/24')
+    })
+
+  });
+
 
 
 });
