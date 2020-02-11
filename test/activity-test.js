@@ -218,6 +218,14 @@ describe('Activity', function() {
     })
   })
 
+  describe('calculateActiveMinutes method', () => {
+    it('should return total minutes active for a given date for a given user', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.calculateActiveMinutes('2019/06/19', users.getUserDataById(1))).to.equal(213)
+    })
+
+  })
+
 
 
 });
