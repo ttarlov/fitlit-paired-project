@@ -221,7 +221,7 @@ describe('Activity', function() {
   describe('calculateActiveMinutes method', () => {
     it('should return total minutes active for a given date for a given user', () => {
       let users = new UserRepository(sampleUserData)
-      expect(activity.calculateActiveMinutes('2019/06/19', users.getUserDataById(1))).to.equal(213)
+      expect(activity.calculateActiveMinutes('2019/06/19', users.getUserDataById())).to.equal(213)
     });
   });
 
@@ -288,6 +288,15 @@ describe('Activity', function() {
       expect(activity.getMinutesActiveForAll('2019/06/15')).to.equal(80)
     });
   });
+
+  describe('findMostActiveUserByDate method', () => {
+    it('Find user\'s ID with most steps on a given day', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.findMostActiveUserByDate('2019/06/15', users)).to.equal('Jarvis')
+    });
+  });
+
+  
 
 });
 
