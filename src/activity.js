@@ -81,6 +81,16 @@ class Activity {
     return Number((totalSteps / dailyData.length).toFixed(2))
   }
 
+  getMinutesActiveForAll(date) {
+    let activityData = this.data;
+    let dailyData = this.data.filter(day => day.date === date);
+    let totalMinutes = dailyData.reduce((acc, day) => {
+      acc += day.minutesActive
+      return acc
+    },0)
+    return Number((totalMinutes / dailyData.length).toFixed(2))
+  }
+
 
 }
 
