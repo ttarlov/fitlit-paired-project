@@ -71,6 +71,16 @@ class Activity {
     return (totalStairs / dailyData.length)
   }
 
+  getAvgStepsForAll(date) {
+    let activityData = this.data;
+    let dailyData = this.data.filter(day => day.date === date);
+    let totalSteps = dailyData.reduce((acc, day) => {
+      acc += day.numSteps
+      return acc
+    },0)
+    return Number((totalSteps / dailyData.length).toFixed(2))
+  }
+
 
 }
 
