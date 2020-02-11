@@ -222,66 +222,71 @@ describe('Activity', function() {
     it('should return total minutes active for a given date for a given user', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity.calculateActiveMinutes('2019/06/19', users.getUserDataById(1))).to.equal(213)
-    })
-  })
+    });
+  });
 
   describe('calculateWeeklyAverageActivity method', () => {
     it('should return average minutes active for a week for a given user', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity.calculateWeeklyAverageActivity('2019/06/22', users.getUserDataById(1))).to.equal('155.57')
-    })
-  })
+    });
+  });
 
   describe('findIfStepGoalWasAchieved method', () => {
     it('should tell whether a user reached their daily step goal', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity.findIfStepGoalWasAchieved('2019/06/22', users.getUserDataById(1))).to.equal('Good Job! You Reached your Step Goal')
-    })
+    });
 
     it('should tell whether a user reached their daily step goal', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity.findIfStepGoalWasAchieved('2019/06/23', users.getUserDataById(1))).to.equal('Pick up the pace, lazy bones!')
-    })
-  })
+    });
+  });
 
   describe('findDaysStepGoalWasExceeded method', () => {
     it('should tell whether a user reached their daily step goal', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity.findDaysStepGoalWasExceeded( users.getUserDataById(1))).to.deep.equal([ '2019/06/19', '2019/06/20', '2019/06/22' ])
-    })
+    });
 
     it('should tell whether another user reached their daily step goal', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity.findDaysStepGoalWasExceeded( users.getUserDataById(2))).to.deep.equal(['2019/06/17','2019/06/19','2019/06/20','2019/06/22','2019/06/23','2019/06/24'])
-    })
-  })
+    });
+  });
 
   describe('findStairClimbingRecord method', () => {
     it('Find all time stair climbing record', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity.findStairClimbingRecord()).to.equal('2019/06/24')
-    })
+    });
 
     it('Find all time stair climbing record for another user', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity2.findStairClimbingRecord()).to.equal('2019/06/21')
-    })
-  })
+    });
+  });
 
   describe('getAvgStairsClimbedForAll method', () => {
     it('Find average stairs climed for all users on a specific day', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity.getAvgStairsClimbedForAll('2019/06/15')).to.equal(20)
-    })
-
+    });
   });
 
   describe('getAvgStepsForAll method', () => {
     it('Find average steps taken for all users on a specific day', () => {
       let users = new UserRepository(sampleUserData)
       expect(activity.getAvgStepsForAll('2019/06/15')).to.equal(7614.5)
-    })
+    });
+  });
 
+  describe('getMinutesActiveForAll method', () => {
+    it('Find average steps taken for all users on a specific day', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.getMinutesActiveForAll('2019/06/15')).to.equal(80)
+    });
   });
 
 });
