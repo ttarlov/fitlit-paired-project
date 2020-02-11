@@ -247,6 +247,19 @@ describe('Activity', function() {
 
   })
 
+  describe('findDaysStepGoalWasExceeded method', () => {
+    it('should tell whether a user reached their daily step goal', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.findDaysStepGoalWasExceeded( users.getUserDataById(1))).to.deep.equal([ '2019/06/19', '2019/06/20', '2019/06/22' ])
+    })
+
+    it('should tell whether another user reached their daily step goal', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.findDaysStepGoalWasExceeded( users.getUserDataById(2))).to.deep.equal(['2019/06/17','2019/06/19','2019/06/20','2019/06/22','2019/06/23','2019/06/24'])
+    })
+
+  })
+
 
 
 });
