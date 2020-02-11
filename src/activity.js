@@ -91,6 +91,13 @@ class Activity {
     return Number((totalMinutes / dailyData.length).toFixed(2))
   }
 
+  findMostActiveUserByDate(date, user) {
+    let selectedDay = this.data.filter(day => day.date === date)
+    let winnerID = selectedDay.sort((a, b) => b.numSteps - a.numSteps)[0].userID
+    let victor = user.getUserDataById(winnerID);
+    return victor.name.split(' ')[0];
+  }
+
 
 }
 
