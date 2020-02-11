@@ -234,6 +234,19 @@ describe('Activity', function() {
 
   })
 
+  describe('findIfStepGoalWasAchieved method', () => {
+    it('should tell whether a user reached their daily step goal', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.findIfStepGoalWasAchieved('2019/06/22', users.getUserDataById(1))).to.equal('Good Job! You Reached your Step Goal')
+    })
+
+    it('should tell whether a user reached their daily step goal', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.findIfStepGoalWasAchieved('2019/06/23', users.getUserDataById(1))).to.equal('Pick up the pace, lazy bones!')
+    })
+
+  })
+
 
 
 });
