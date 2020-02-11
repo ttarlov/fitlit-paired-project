@@ -124,7 +124,7 @@ beforeEach(() => {
   "date": "2019/06/21",
   "numSteps": 12982,
   "minutesActive": 231,
-  "flightsOfStairs": 46
+  "flightsOfStairs": 55
 },
 {
   "userID": 2,
@@ -223,7 +223,6 @@ describe('Activity', function() {
       let users = new UserRepository(sampleUserData)
       expect(activity.calculateActiveMinutes('2019/06/19', users.getUserDataById(1))).to.equal(213)
     })
-
   })
 
   describe('calculateWeeklyAverageActivity method', () => {
@@ -231,7 +230,6 @@ describe('Activity', function() {
       let users = new UserRepository(sampleUserData)
       expect(activity.calculateWeeklyAverageActivity('2019/06/22', users.getUserDataById(1))).to.equal('155.57')
     })
-
   })
 
   describe('findIfStepGoalWasAchieved method', () => {
@@ -244,7 +242,6 @@ describe('Activity', function() {
       let users = new UserRepository(sampleUserData)
       expect(activity.findIfStepGoalWasAchieved('2019/06/23', users.getUserDataById(1))).to.equal('Pick up the pace, lazy bones!')
     })
-
   })
 
   describe('findDaysStepGoalWasExceeded method', () => {
@@ -257,7 +254,18 @@ describe('Activity', function() {
       let users = new UserRepository(sampleUserData)
       expect(activity.findDaysStepGoalWasExceeded( users.getUserDataById(2))).to.deep.equal(['2019/06/17','2019/06/19','2019/06/20','2019/06/22','2019/06/23','2019/06/24'])
     })
+  })
 
+  describe('findStairClimbingRecord method', () => {
+    it('Find all time stair climbing record', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.findStairClimbingRecord()).to.equal('2019/06/24')
+    })
+
+    it('Find all time stair climbing record for another user', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity2.findStairClimbingRecord()).to.equal('2019/06/21')
+    })
   })
 
 
