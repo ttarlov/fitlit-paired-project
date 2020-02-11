@@ -32,6 +32,19 @@ class Activity {
     return (weeklyTotal / 7).toFixed(2)
   }
 
+  findIfStepGoalWasAchieved(date, user) {
+    let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
+    let dailyStepGoal = user.dailyStepGoal
+    let singleDayActivity = this.user.find(day => day.date === date)
+    let numStepsToday = singleDayActivity.numSteps
+      if (numStepsToday > dailyStepGoal) {
+        return 'Good Job! You Reached your Step Goal'
+      } else {
+        return 'Pick up the pace, lazy bones!'
+      }
+
+  }
+
 }
 
 if (typeof module !== 'undefined') {
