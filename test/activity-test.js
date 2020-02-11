@@ -226,6 +226,14 @@ describe('Activity', function() {
 
   })
 
+  describe('calculateWeeklyAverageActivity method', () => {
+    it('should return average minutes active for a week for a given user', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.calculateWeeklyAverageActivity('2019/06/22', users.getUserDataById(1))).to.equal('155.57')
+    })
+
+  })
+
 
 
 });
