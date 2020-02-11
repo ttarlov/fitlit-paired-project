@@ -52,8 +52,14 @@ class Activity {
       greatDays.push(day.date)
       }
     })
-    console.log(greatDays);
     return greatDays;
+  }
+
+  findStairClimbingRecord() {
+    let sortedDays = this.user.sort((a, b) => b.flightsOfStairs - a.flightsOfStairs)
+    let stairRecordDay = sortedDays.shift();
+    let recordDate = stairRecordDay.date
+    return recordDate
   }
 }
 
