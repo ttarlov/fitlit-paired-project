@@ -33,7 +33,6 @@ class Activity {
   }
 
   findIfStepGoalWasAchieved(date, user) {
-    let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
     let dailyStepGoal = user.dailyStepGoal;
     let singleDayActivity = this.user.find(day => day.date === date)
     let numStepsToday = singleDayActivity.numSteps
@@ -61,6 +60,18 @@ class Activity {
     let recordDate = stairRecordDay.date
     return recordDate
   }
+
+  getAvgStairsClimbedForAll(date) {
+  let activityData = this.data;
+  let dailyData = this.data.filter(day => day.date === date);
+  let totalStairs = dailyData.reduce((acc, day) => {
+    acc += day.flightsOfStairs
+    return acc
+  },0)
+    return (totalStairs / dailyData.length)
+  }
+
+
 }
 
 if (typeof module !== 'undefined') {
