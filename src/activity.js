@@ -107,13 +107,13 @@ class Activity {
     let user = activityData.find(element => element.userID === id && element.date === date);
     return user.numSteps
   }
-//needs testing
+
   findStairsForDay(date, id) {
     let activityData = this.data;
     let user = activityData.find(element => element.userID === id && element.date === date);
     return user.flightsOfStairs
   }
-//needs testing
+
   findWeeklyActivity(date) {
     let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
       return this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
