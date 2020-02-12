@@ -5,6 +5,10 @@ class Activity {
     this.user = this.findUserActivityData();
   }
 
+  findCurrentDate() {
+    return this.data.date
+  }
+
   findUserActivityData() {
     return this.data.filter(user => user.userID === this.id);
   }
@@ -68,7 +72,7 @@ class Activity {
     acc += day.flightsOfStairs
     return acc
   },0)
-    return (totalStairs / dailyData.length)
+    return Math.floor(totalStairs / dailyData.length)
   }
 
   getAvgStepsForAll(date) {
@@ -78,7 +82,7 @@ class Activity {
       acc += day.numSteps
       return acc
     },0)
-    return Number((totalSteps / dailyData.length).toFixed(2))
+    return Number((totalSteps / dailyData.length).toFixed(0))
   }
 
   getMinutesActiveForAll(date) {
@@ -88,7 +92,7 @@ class Activity {
       acc += day.minutesActive
       return acc
     },0)
-    return Number((totalMinutes / dailyData.length).toFixed(2))
+    return Number((totalMinutes / dailyData.length).toFixed(0))
   }
 
   findMostActiveUserByDate(date, user) {
@@ -97,6 +101,24 @@ class Activity {
     let victor = user.getUserDataById(winnerID);
     return victor.name.split(' ')[0];
   }
+
+//needs testing
+  findStepsForDay(date, id) {
+    let activityData = this.data;
+    let user = activityData.find(element => element.userID === id && element.date === date);
+    return user.numSteps
+  }
+//needs testing
+  findStairsForDay(date, id) {
+    let activityData = this.data;
+    let user = activityData.find(element => element.userID === id && element.date === date);
+    return user.flightsOfStairs
+  }
+//needs testing
+  findWeeklyActivity(date) {
+    let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
+      return this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
+  };
 
 
 }
