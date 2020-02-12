@@ -408,7 +408,12 @@ describe('Activity', function() {
         }
       ])
     });
-
   });
+
+  describe('findTotalWeeklySteps method', function() {
+    it('Find users total weekly steps', function() {
+      expect(activity.findTotalWeeklySteps('2019/06/24', 1)).to.equal(57041)
+    });
+});
 
 });
