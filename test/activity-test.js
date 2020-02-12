@@ -278,7 +278,7 @@ describe('Activity', function() {
   describe('getAvgStepsForAll method', () => {
     it('Find average steps taken for all users on a specific day', () => {
       let users = new UserRepository(sampleUserData)
-      expect(activity.getAvgStepsForAll('2019/06/15')).to.equal(7614.5)
+      expect(activity.getAvgStepsForAll('2019/06/15')).to.equal(7615)
     });
   });
 
@@ -296,7 +296,14 @@ describe('Activity', function() {
     });
   });
 
-  
+  describe('findStepsForDay method', () => {
+    it('Find user\'s ID with most steps on a given day', () => {
+      let users = new UserRepository(sampleUserData)
+      expect(activity.findStepsForDay('2019/06/16', 1)).to.equal(4294)
+    });
+  });
+
+
 
 });
 
