@@ -134,7 +134,6 @@ beforeEach(() => {
   ];
   sleep = new Sleep(data, 1);
   sleep2 = new Sleep(data, 2);
-  sleep3 = new Sleep(data, 3)
 });
 
 describe('Sleep', function() {
@@ -220,12 +219,12 @@ describe('Sleep', function() {
   })
 
 //STILL NEED TO TEST
-  describe('findAllUsersWhoSleepGood Method', function() {
-
-    it('should be able to find the users that have a weekly sleep quality > 3', () => {
-      expect(sleep.findAllUsersWhoSleepGood('2019/06/23')).to.deep.equal({ userID: 3, date: '2019/06/23', hoursSlept: 11.1, sleepQuality: 3.4 })
-    })
-  })
+  // describe('findAllUsersWhoSleepGood Method', function() {
+  //
+  //   it('should be able to find the users that have a weekly sleep quality > 3', () => {
+  //     expect(sleep.findAllUsersWhoSleepGood('2019/06/23')).to.deep.equal({ userID: 3, date: '2019/06/23', hoursSlept: 11.1, sleepQuality: 3.4 })
+  //   })
+  // })
 
   describe('findMostRestedUserByDate Method', function() {
 

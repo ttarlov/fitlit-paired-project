@@ -5,9 +5,9 @@ class Activity {
     this.user = this.findUserActivityData();
   }
 
-  findCurrentDate() {
-    return this.data.date
-  }
+  // findCurrentDate() {
+  //   return this.data.date
+  // }
 
   findUserActivityData() {
     return this.data.filter(user => user.userID === this.id);
@@ -102,19 +102,18 @@ class Activity {
     return victor.name.split(' ')[0];
   }
 
-//needs testing
   findStepsForDay(date, id) {
     let activityData = this.data;
     let user = activityData.find(element => element.userID === id && element.date === date);
     return user.numSteps
   }
-//needs testing
+
   findStairsForDay(date, id) {
     let activityData = this.data;
     let user = activityData.find(element => element.userID === id && element.date === date);
     return user.flightsOfStairs
   }
-//needs testing
+
   findWeeklyActivity(date) {
     let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
       return this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)

@@ -20,21 +20,12 @@ let lastWeekSleep = document.querySelector('.last-week-sleep-js');
 let recomendedSleep = document.querySelector('.sleep-percentage-js')
 let avgSleepQuality = document.querySelector('.avg-sleep-quality-js')
 let avgHoursSleptAllTime = document.querySelector('.all-time-avg-hours-slept-js')
-let parentDiv = document.querySelector('.parent')
 let dailySteps = document.querySelector('.steps-for-latest-day-js');
 let minutesActive = document.querySelector('.minutes-active-for-latest-day-js');
 let milesWalked = document.querySelector('.miles-walked-for-latest-day-js');
 let stackUp = document.querySelector('.stack-up-js')
 let weeklyActivity = document.querySelector('.weekly-activity-js');
 
-
-parent.addEventListener('click', makeItShake);
-
-function makeItShake(event) {
-  if (event.target.classList.contains('tile')) {
-    event.target.closest('.tile').classList.toggle('vibe')
-  }
-}
 
 displayUserInfo(user);
 displayWaterConsumption();

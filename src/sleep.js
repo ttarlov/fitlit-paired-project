@@ -37,27 +37,26 @@ class Sleep {
           acc+= user.sleepQuality
           return acc;
         },0);
-        console.log((totalSleepQuality / this.data.length).toFixed(2));
       return  Number((totalSleepQuality / this.data.length).toFixed(2));
   };
 
 
 
-//STILL IN PROGRESS//
-  findAllUsersWhoSleepGood(date) {
-    let indexOfCurrentDay = this.data.findIndex(day => day.date === date);
-    let weekData = this.data.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
-    console.log(this.data);
-  //Find a week's worth of data for every user
-    weekData.map((day) => {
-      // console.log(`${day.userID}: ${day.sleepQuality}`);
-      return {
-      }
-    })
-  //Calculate average sleep quality for each user for the week
-
-  //return only the users with an average sleep quality > 3
-  }
+// //STILL IN PROGRESS//
+//   findAllUsersWhoSleepGood(date) {
+//     let indexOfCurrentDay = this.data.findIndex(day => day.date === date);
+//     let weekData = this.data.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
+//     console.log(this.data);
+//   //Find a week's worth of data for every user
+//     weekData.map((day) => {
+//       // console.log(`${day.userID}: ${day.sleepQuality}`);
+//       return {
+//       }
+//     })
+//   //Calculate average sleep quality for each user for the week
+//
+//   //return only the users with an average sleep quality > 3
+//   }
 
   findMostRestedUserByDate(date) {
     let selectedDay = this.data.filter(day => day.date === date)
