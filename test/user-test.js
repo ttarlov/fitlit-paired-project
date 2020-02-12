@@ -18,7 +18,6 @@ describe('User', function() {
     });
   });
 
-
   it('should be a function', () => {
 
     expect(User).to.be.a('function');
@@ -29,7 +28,7 @@ describe('User', function() {
   });
 
   describe('getFirstName Method', () => {
-
+    
     it('should return first name', () => {
     expect(singleUser.getFirstName()).to.equal('Luisa');
     });
