@@ -1,9 +1,9 @@
 let randomNumber = ((Math.ceil(Math.random() * 50)));
-const userRepo = new UserRepository(userData)
-const user = new User(userData[`${randomNumber -1}`])
-const hydration = new Hydration(hydrationData, randomNumber)
-const sleep = new Sleep(sleepData, randomNumber)
-const activity = new Activity(activityData, randomNumber)
+const userRepo = new UserRepository(userData, randomNumber);
+const user = new User(userData[`${randomNumber -1}`]);
+const hydration = new Hydration(hydrationData, randomNumber);
+const sleep = new Sleep(sleepData, randomNumber);
+const activity = new Activity(activityData, randomNumber);
 let welcomeName = document.querySelector('.user-first-name-js');
 let userFullName = document.querySelector('.user-full-name-js');
 let userAddress = document.querySelector('.user-address-js');
@@ -197,7 +197,7 @@ function displayActivity() {
 </table>`
   weeklySteps.innerHTML = `Your Steps This Week: ${activity.findTotalWeeklySteps("2019/09/22", randomNumber)}`
 
-  // friendsSteps.innerHTML = `${activity.findTotalWeeklySteps("2019/09/22", 30)}`
+  friendsSteps.innerHTML = `${activity.findTotalWeeklySteps("2019/09/22", makeAFriend())}`
 
 
   weeklyActivity.innerHTML = `
@@ -255,4 +255,9 @@ function displayActivity() {
     </tr>
   </tbody>
 </table>`
+}
+
+function makeAFriend() {
+  let friend = new User(userData[`${user.friends[0]-1}`])
+  return friend.id
 }
