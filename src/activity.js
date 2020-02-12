@@ -5,10 +5,6 @@ class Activity {
     this.user = this.findUserActivityData();
   }
 
-  // findCurrentDate() {
-  //   return this.data.date
-  // }
-
   findUserActivityData() {
     return this.data.filter(user => user.userID === this.id);
   }
@@ -95,6 +91,7 @@ class Activity {
     return Number((totalMinutes / dailyData.length).toFixed(0))
   }
 
+  //custom metric
   findMostActiveUserByDate(date, user) {
     let selectedDay = this.data.filter(day => day.date === date)
     let winnerID = selectedDay.sort((a, b) => b.numSteps - a.numSteps)[0].userID
@@ -119,7 +116,19 @@ class Activity {
       return this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
   };
 
-
+  findTotalWeeklySteps(date, id) {
+    let user = this.data.find(element => element.userID === id && element.date === date);
+    console.log(user);
+    let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
+    console.log(indexOfCurrentDay);
+    let totalWeeklyActivity = this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1);
+    console.log(totalWeeklyActivity)
+    let totalWeeklySteps = totalWeeklyActivity.reduce((acc, day) => {
+      acc += day.numSteps
+      return acc
+    }, 0)
+    return totalWeeklySteps
+  }
 }
 
 if (typeof module !== 'undefined') {

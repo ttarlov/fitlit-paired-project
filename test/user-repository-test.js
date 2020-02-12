@@ -13,10 +13,8 @@ beforeEach(() => {
       "strideLength": 3,
       "dailyStepGoal": 10000,
       "friends": [
-        17,
-        46,
-        40,
-        44
+        28,
+        29
       ]
     },
     {
@@ -46,7 +44,7 @@ beforeEach(() => {
       ]
     }
   ];
-  userRepo = new UserRepository(data);
+  userRepo = new UserRepository(data, 27);
 });
 
 
@@ -73,4 +71,35 @@ describe('UserRepository', function() {
       expect(userRepo.calculateAvgStepGoal()).to.equal(7000);
     });
   });
-});
+
+  describe('getFriends Method', function() {
+    it('should be able to get users friends', function() {
+      expect(userRepo.findFriends()).to.deep.equal([ 28, 29 ]);
+      })
+    });
+
+    describe('findFriendsInfo Method', function() {
+    it('should be able to get users friends information', function() {
+      expect(userRepo.findFriendsInfo()).to.deep.equal([
+        {
+          id: 28,
+          name: 'Noemi Huels',
+          address: '5437 Barton Oval, Caesarview RI 88637',
+          email: 'Geovany.Jaskolski@hotmail.com',
+          strideLength: 3.3,
+          dailyStepGoal: 2000,
+          friends: [ 18, 16, 47 ]
+        },
+        {
+          id: 29,
+          name: 'Colten Trantow',
+          address: '2625 Waino Skyway, Kaceybury ME 18723',
+          email: 'Demetris67@hotmail.com',
+          strideLength: 4.2,
+          dailyStepGoal: 9000,
+          friends: [ 9, 5, 41 ]
+        }
+      ]);
+    })
+  });
+})
