@@ -138,11 +138,11 @@ beforeEach(() => {
 
 describe('Sleep', function() {
 
-  it('should be a function', function(){
+  it('should be a function', function() {
     expect(Sleep).to.be.a('function');
   });
 
-  it('should be an instance of Sleep', function(){
+  it('should be an instance of Sleep', function() {
     expect(sleep).to.be.an.instanceof(Sleep);
   });
 
@@ -155,7 +155,7 @@ describe('findUserSleepData Method', () => {
     })
   });
 
-  describe('calculateAvgSleepQuality Method', function(){
+  describe('calculateAvgSleepQuality Method', function() {
     it('Should calculate average sleep quality per day over all time', function(){
       expect(sleep.calculateAvgSleepQuality()).to.equal('3.27')
     });
@@ -165,22 +165,22 @@ describe('findUserSleepData Method', () => {
     });
   });
 
-  describe('calculateHoursSleptByDay Method', function(){
-    it('should calculate daily sleep based on date', function(){
+  describe('calculateHoursSleptByDay Method', function() {
+    it('should calculate daily sleep based on date', function() {
       expect(sleep.calculateHoursSleptByDay("2019/06/20")).to.equal(9.6)
     });
 
-    it('should calculate daily sleep based on date for another user', function(){
+    it('should calculate daily sleep based on date for another user', function() {
       expect(sleep2.calculateHoursSleptByDay("2019/06/20")).to.equal(4.6)
     });
   });
 
-  describe('calculateQualityOfSleepByDay Method', function(){
-    it('should calculate daily sleep quality based on date', function(){
+  describe('calculateQualityOfSleepByDay Method', function() {
+    it('should calculate daily sleep quality based on date', function() {
       expect(sleep.calculateQualityOfSleepByDay("2019/06/20")).to.equal(2.9)
     });
 
-    it('should calculate daily sleep quality based on date for another user', function(){
+    it('should calculate daily sleep quality based on date for another user', function() {
       expect(sleep2.calculateQualityOfSleepByDay("2019/06/20")).to.equal(2.8)
     });
   });
@@ -225,22 +225,22 @@ describe('findUserSleepData Method', () => {
     })
   })
 
-  describe('calculatePercentageOfRecommendedSleep Method', function(){
-    it('Should calcualte total percentage of hours slept in a week time vs recomended amount', function(){
+  describe('calculatePercentageOfRecommendedSleep Method', function() {
+    it('Should calcualte total percentage of hours slept in a week time vs recomended amount', function() {
       expect(sleep.calculatePercentageOfRecommendedSleep('2019/06/23')).to.equal('92.86%')
     });
-    it('Should calcualte percentage of total hours slept in a week time vs recomended amount', function(){
+    it('Should calcualte percentage of total hours slept in a week time vs recomended amount', function() {
       expect(sleep2.calculatePercentageOfRecommendedSleep('2019/06/23')).to.equal('90.18%')
     });
   });
 
-  describe('calculateTotalAvgHoursSlept Method', function(){
+  describe('calculateTotalAvgHoursSlept Method', function() {
 
-    it('Should calculate all-time average hours slept', function(){
+    it('Should calculate all-time average hours slept', function() {
       expect(sleep.calculateTotalAvgHoursSlept()).to.equal('7.23')
     });
 
-    it('Should calculate all-time average hours slept for another user', function(){
+    it('Should calculate all-time average hours slept for another user', function() {
       expect(sleep2.calculateTotalAvgHoursSlept()).to.equal('6.69')
     });
   });
