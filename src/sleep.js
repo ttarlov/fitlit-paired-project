@@ -37,7 +37,6 @@ class Sleep {
           acc+= user.sleepQuality
           return acc;
         },0);
-        console.log((totalSleepQuality / this.data.length).toFixed(2));
       return  Number((totalSleepQuality / this.data.length).toFixed(2));
   };
 
