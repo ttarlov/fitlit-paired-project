@@ -14,7 +14,7 @@ class Hydration {
         total += day.numOunces
         return total
       },0);
-    return Math.floor(totalOz/this.user.length)
+    return Math.floor(totalOz / this.user.length)
   }
 
   calculateDailyOz(date) {
@@ -24,7 +24,7 @@ class Hydration {
 
   calculateWeeklyOz(date) {
     let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
-    return this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
+    return this.user.slice(indexOfCurrentDay - 6, indexOfCurrentDay + 1)
   }
 }
 
