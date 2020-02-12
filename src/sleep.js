@@ -63,6 +63,7 @@ class Sleep {
     return selectedDay.sort((a, b) => b.hoursSlept - a.hoursSlept)[0]
   }
 
+  //custom metric
   calculatePercentageOfRecommendedSleep(date) {
     let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
     let weeklySleep = this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
