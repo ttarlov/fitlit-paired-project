@@ -303,6 +303,11 @@ describe('Activity', function() {
     });
   });
 
+  describe('findStairsForDay method', () => {
+    it('Find users flights of stairs for a given date based on ID', () => {
+      expect(activity.findStairsForDay('2019/06/16', 1)).to.equal(10)
+    });
+  });
 
 
 });
