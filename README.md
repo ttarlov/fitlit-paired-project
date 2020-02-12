@@ -13,8 +13,8 @@ The specifications for this project can be found here <a href="https://frontend.
 
 ## Screenshots
 
-![alt="Screenshot Of FitLit"](Screenshots/fitlit_screenshot_0.png)
-![alt="Screenshot 2 Of FitLit"](Screenshots/fitlit_screenshot_1.png)
+![](screenshots/fitlit_screenshot_0.png)
+![](screenshots/fitlit_screenshot_1.png)
 
 
 ## How to Install:
