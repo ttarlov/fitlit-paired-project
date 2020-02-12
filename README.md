@@ -14,6 +14,9 @@ The specifications for this project can be found here <a href="https://frontend.
 ## Screenshots
 
 ![](screenshots/fitlit_screenshot_0.png)
+
+
+##
 ![](screenshots/fitlit_screenshot_1.png)
 
 
