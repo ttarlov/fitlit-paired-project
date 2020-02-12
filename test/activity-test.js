@@ -3,7 +3,7 @@ const expect = chai.expect;
 const Activity = require('../src/activity.js');
 const UserRepository = require('../src/userrepository.js');
 
-let data, sampleUserData1
+let data;
 
 beforeEach(() => {
   data = [{
@@ -256,33 +256,28 @@ describe('Activity', function() {
 
   describe('findStairClimbingRecord method', () => {
     it('Find all time stair climbing record', () => {
-      let users = new UserRepository(sampleUserData)
       expect(activity.findStairClimbingRecord()).to.equal('2019/06/24')
     });
 
     it('Find all time stair climbing record for another user', () => {
-      let users = new UserRepository(sampleUserData)
       expect(activity2.findStairClimbingRecord()).to.equal('2019/06/21')
     });
   });
 
   describe('getAvgStairsClimbedForAll method', () => {
     it('Find average stairs climed for all users on a specific day', () => {
-      let users = new UserRepository(sampleUserData)
       expect(activity.getAvgStairsClimbedForAll('2019/06/15')).to.equal(20)
     });
   });
 
   describe('getAvgStepsForAll method', () => {
     it('Find average steps taken for all users on a specific day', () => {
-      let users = new UserRepository(sampleUserData)
       expect(activity.getAvgStepsForAll('2019/06/15')).to.equal(7615)
     });
   });
 
   describe('getMinutesActiveForAll method', () => {
     it('Find average steps taken for all users on a specific day', () => {
-      let users = new UserRepository(sampleUserData)
       expect(activity.getMinutesActiveForAll('2019/06/15')).to.equal(80)
     });
   });
@@ -296,7 +291,6 @@ describe('Activity', function() {
 
   describe('findStepsForDay method', () => {
     it('Find user\'s ID with most steps on a given day', () => {
-      let users = new UserRepository(sampleUserData)
       expect(activity.findStepsForDay('2019/06/16', 1)).to.equal(4294)
     });
   });
@@ -418,6 +412,3 @@ describe('Activity', function() {
   });
 
 });
-
-
-//
