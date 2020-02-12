@@ -7,7 +7,6 @@ class Hydration {
 
   findUserHydroData() {
     return this.data.filter(user => user.userID === this.id);
-
   }
 
   calculateAvgOzsPerDay() {
@@ -16,7 +15,6 @@ class Hydration {
         return total
       },0);
     return Math.floor(totalOz/this.user.length)
-
   }
 
   calculateDailyOz(date) {
