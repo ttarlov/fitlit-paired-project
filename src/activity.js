@@ -122,7 +122,7 @@ class Activity {
 
   findTotalWeeklySteps(date, id) {
     let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
-    let totalWeeklyActivity = this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
+    let totalWeeklyActivity = this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1);
     let totalWeeklySteps = totalWeeklyActivity.reduce((acc, day) => {
       acc += day.numSteps
       return acc
