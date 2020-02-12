@@ -1,22 +1,34 @@
 class UserRepository {
-  constructor(data) {
+  constructor(data, id) {
     this.data = data;
-    this.friends = null;
+    this.id = id;
+    this.friends = this.findFriends();
   }
 
-  getUserDataById(id) {
-    // return the single user whose id mathes the argument of 'id'.
+  getUserDataById(id = this.id) {
     return this.data.find(user => user.id === id);
   }
 
-  //need to loop through all of the users. grab their dailyStepGoal
-  //add them together and divide them by the number of users in the group.
   calculateAvgStepGoal() {
     let totalStepGoal = this.data.reduce((acc, user) => {
         acc+= user.dailyStepGoal
         return acc;
       },0);
     return  totalStepGoal / this.data.length;
+  }
+
+  findFriends() {
+    return this.getUserDataById().friends;
+  }
+
+  findFriendsInfo() {
+    let friendInfo = [];
+    let friendIDs = this.friends;
+    friendIDs.forEach(friend => {
+      let foundFriend = this.data.find(user => user.id === friend)
+      friendInfo.push(foundFriend)
+    });
+    return friendInfo
   }
 }
 
