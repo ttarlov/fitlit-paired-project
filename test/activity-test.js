@@ -148,7 +148,7 @@ beforeEach(() => {
     }
   ];
 
-  sampleUserData = [{
+  sampleUserData= [{
       "id": 1,
       "name": "Luisa Hane",
       "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
@@ -201,55 +201,55 @@ describe('Activity', function() {
 
   describe('calculateMilesWalked method', () => {
     it('should return total miles walked for a given date for a given user', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.calculateMilesWalked('2019/06/19', users.getUserDataById(1))).to.equal('9.26')
     })
 
     it('should return total miles walked for another given date for a given user', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.calculateMilesWalked('2019/06/22', users.getUserDataById(1))).to.equal('8.42')
     })
 
     it('should return total miles walked for a given date for another user', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.calculateMilesWalked('2019/06/19', users.getUserDataById(2))).to.equal('9.69')
     })
   })
 
   describe('calculateActiveMinutes method', () => {
     it('should return total minutes active for a given date for a given user', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.calculateActiveMinutes('2019/06/19', users.getUserDataById())).to.equal(213)
     });
   });
 
   describe('calculateWeeklyAverageActivity method', () => {
     it('should return average minutes active for a week for a given user', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.calculateWeeklyAverageActivity('2019/06/22', users.getUserDataById(1))).to.equal('155.57')
     });
   });
 
   describe('findIfStepGoalWasAchieved method', () => {
     it('should tell whether a user reached their daily step goal', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.findIfStepGoalWasAchieved('2019/06/22', users.getUserDataById(1))).to.equal('Good Job! You Reached your Step Goal')
     });
 
     it('should tell whether a user reached their daily step goal', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.findIfStepGoalWasAchieved('2019/06/23', users.getUserDataById(1))).to.equal('Pick up the pace, lazy bones!')
     });
   });
 
   describe('findDaysStepGoalWasExceeded method', () => {
     it('should tell whether a user reached their daily step goal', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.findDaysStepGoalWasExceeded(users.getUserDataById(1))).to.deep.equal(['2019/06/19', '2019/06/20', '2019/06/22'])
     });
 
     it('should tell whether another user reached their daily step goal', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.findDaysStepGoalWasExceeded(users.getUserDataById(2))).to.deep.equal(['2019/06/17', '2019/06/19', '2019/06/20', '2019/06/22', '2019/06/23', '2019/06/24'])
     });
   });
@@ -284,7 +284,7 @@ describe('Activity', function() {
 
   describe('findMostActiveUserByDate method', () => {
     it('Find user\'s ID with most steps on a given day', () => {
-      let users = new UserRepository(sampleUserData)
+      let users = new UserRepository(sampleUserData, 1)
       expect(activity.findMostActiveUserByDate('2019/06/15', users)).to.equal('Jarvis')
     });
   });
@@ -355,7 +355,6 @@ describe('Activity', function() {
       ])
     });
 
-
     it('Find another users all weekly activity data', function() {
       expect(activity2.findWeeklyActivity('2019/06/24')).to.deep.equal([{
           userID: 2,
@@ -412,8 +411,7 @@ describe('Activity', function() {
 
   describe('findTotalWeeklySteps method', function() {
     it('Find users total weekly steps', function() {
-      expect(activity.findTotalWeeklySteps('2019/06/24', 1)).to.equal(57041)
+      expect(activity.findTotalWeeklySteps('2019/06/24', 2)).to.equal(57041)
     });
-});
-
+  });
 });
