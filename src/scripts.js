@@ -1,6 +1,6 @@
 let randomNumber = ((Math.ceil(Math.random() * 50)));
 const userRepo = new UserRepository(userData, randomNumber);
-const user = new User(userData[`${randomNumber -1}`]);
+const user = new User(userData[`${randomNumber - 1}`]);
 const hydration = new Hydration(hydrationData, randomNumber);
 const sleep = new Sleep(sleepData, randomNumber);
 const activity = new Activity(activityData, randomNumber);
@@ -45,9 +45,9 @@ function displayUserInfo(user) {
 
 function displaySleepData() {
   avgHoursSleptAllTime.innerHTML = `${sleep.calculateTotalAvgHoursSlept()} hrs`
-  avgSleepQuality.innerHTML = `${(((sleep.calculateAvgSleepQuality())/5)*100).toFixed(2)}%`
+  avgSleepQuality.innerHTML = `${(((sleep.calculateAvgSleepQuality()) / 5) * 100).toFixed(2)}%`
   recomendedSleep.innerHTML = `${sleep.calculatePercentageOfRecommendedSleep("2019/09/22")}`
-  sleepQuality.innerHTML = `${(((sleep.calculateQualityOfSleepByDay("2019/09/22"))/5)*100).toFixed(2)} %`;
+  sleepQuality.innerHTML = `${(((sleep.calculateQualityOfSleepByDay("2019/09/22")) / 5) * 100).toFixed(2)} %`;
   hoursSlept.innerHTML = `${sleep.calculateHoursSleptByDay("2019/09/22")}`;
   lastWeekSleep.innerHTML = `
   <table class="sleep-table">
@@ -112,7 +112,7 @@ function displayStepInfo() {
 function displayWaterConsumption() {
   waterConsumedByDay.innerHTML = `${hydration.calculateDailyOz("2019/06/20")}oz`;
   waterConsumedByWeek.innerHTML =
-  `<p><span>${hydration.calculateWeeklyOz("2019/09/22")[0].date}</span><span> :${hydration.calculateWeeklyOz("2019/09/22")[0].numOunces} ozs</span></p>
+    `<p><span>${hydration.calculateWeeklyOz("2019/09/22")[0].date}</span><span> :${hydration.calculateWeeklyOz("2019/09/22")[0].numOunces} ozs</span></p>
   <p><span>${hydration.calculateWeeklyOz("2019/09/22")[1].date}</span><span> : ${hydration.calculateWeeklyOz("2019/09/22")[1].numOunces} ozs</span></p>
   <p><span>${hydration.calculateWeeklyOz("2019/09/22")[2].date}</span><span> : ${hydration.calculateWeeklyOz("2019/09/22")[2].numOunces} ozs</span></p>
   <p><span>${hydration.calculateWeeklyOz("2019/09/22")[3].date}</span><span> : ${hydration.calculateWeeklyOz("2019/09/22")[3].numOunces} ozs</span></p>
@@ -120,7 +120,7 @@ function displayWaterConsumption() {
   <p><span>${hydration.calculateWeeklyOz("2019/09/22")[5].date}</span><span> : ${hydration.calculateWeeklyOz("2019/09/22")[5].numOunces} ozs</span></p>
   <p><span>${hydration.calculateWeeklyOz("2019/09/22")[6].date}</span><span> : ${hydration.calculateWeeklyOz("2019/09/22")[6].numOunces} ozs</span></p>`
 
-waterConsumedByWeek.innerHTML = `
+  waterConsumedByWeek.innerHTML = `
 <table class="water-table">
 <thead>
   <tr>
@@ -258,6 +258,6 @@ function displayActivity() {
 }
 
 function makeAFriend() {
-  let friend = new User(userData[`${user.friends[0]-1}`])
+  let friend = new User(userData[`${user.friends[0] - 1}`])
   return friend.id
 }
