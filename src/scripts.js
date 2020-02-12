@@ -3,6 +3,7 @@ const userRepo = new UserRepository(userData)
 const user = new User(userData[`${randomNumber -1}`])
 const hydration = new Hydration(hydrationData, randomNumber)
 const sleep = new Sleep(sleepData, randomNumber)
+const activity = new Activity(activityData, randomNumber)
 let welcomeName = document.querySelector('.user-first-name-js');
 let userFullName = document.querySelector('.user-full-name-js');
 let userAddress = document.querySelector('.user-address-js');
@@ -20,6 +21,12 @@ let recomendedSleep = document.querySelector('.sleep-percentage-js')
 let avgSleepQuality = document.querySelector('.avg-sleep-quality-js')
 let avgHoursSleptAllTime = document.querySelector('.all-time-avg-hours-slept-js')
 let parentDiv = document.querySelector('.parent')
+let dailySteps = document.querySelector('.steps-for-latest-day-js');
+let minutesActive = document.querySelector('.minutes-active-for-latest-day-js');
+let milesWalked = document.querySelector('.miles-walked-for-latest-day-js');
+let stackUp = document.querySelector('.stack-up-js')
+let weeklyActivity = document.querySelector('.weekly-activity-js');
+
 
 parent.addEventListener('click', makeItShake);
 
@@ -30,9 +37,10 @@ function makeItShake(event) {
 }
 
 displayUserInfo(user);
-displayWaterConsumtion();
+displayWaterConsumption();
 displayStepInfo();
 displaySleepData();
+displayActivity();
 
 function displayUserInfo(user) {
   welcomeName.innerHTML = `${user.getFirstName()}`;
@@ -108,7 +116,7 @@ function displayStepInfo() {
   stepGoalComparison.innerHTML = `${userRepo.calculateAvgStepGoal()}`;
 }
 
-function displayWaterConsumtion() {
+function displayWaterConsumption() {
   waterConsumedByDay.innerHTML = `${hydration.calculateDailyOz("2019/06/20")}oz`;
   waterConsumedByWeek.innerHTML =
   `<p><span>${hydration.calculateWeeklyOz("2019/09/22")[0].date}</span><span> :${hydration.calculateWeeklyOz("2019/09/22")[0].numOunces} ozs</span></p>
@@ -159,5 +167,93 @@ waterConsumedByWeek.innerHTML = `
 </tbody>
 </table>
 `
+}
 
+function displayActivity() {
+  dailySteps.innerHTML = `${activity.findStepsForDay("2019/09/22", randomNumber)}`
+  minutesActive.innerHTML = `${activity.calculateActiveMinutes("2019/09/22", user)}`
+  milesWalked.innerHTML = `${activity.calculateMilesWalked("2019/09/22", user)}`
+  stackUp.innerHTML = `
+  <table class="sleep-table">
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Your Stats</th>
+      <th>Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Number of Steps</td>
+      <td>${activity.findStepsForDay("2019/09/22", randomNumber)}</td>
+      <td>${activity.getAvgStepsForAll("2019/09/22")}</td>
+    </tr>
+    <tr>
+      <td>Minutes Active</td>
+      <td>${activity.calculateActiveMinutes("2019/09/22", user)}</td>
+      <td>${activity.getMinutesActiveForAll("2019/09/22")}</td>
+    </tr>
+    <tr>
+
+      <td>Flights of Stairs</td>
+      <td>${activity.findStairsForDay("2019/09/22", randomNumber)}</td>
+      <td>${activity.getAvgStairsClimbedForAll("2019/09/22")}</td>
+    </tr>
+  </tbody>
+</table>`
+weeklyActivity.innerHTML = `
+<table class="sleep-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Step Count</th>
+      <th>Flights of Stairs</th>
+      <th>Minutes Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>${activity.findWeeklyActivity('2019/09/22')[0].date}</td>
+      <td>${activity.findStepsForDay('2019/09/22', randomNumber)}</td>
+      <td>${activity.findStairsForDay('2019/09/22', randomNumber)}</td>
+      <td>${activity.calculateActiveMinutes('2019/09/22', randomNumber)}</td>
+    </tr>
+    <tr>
+      <td>${activity.findWeeklyActivity('2019/09/22')[1].date}</td>
+      <td>${activity.findStepsForDay('2019/09/21', randomNumber)}</td>
+      <td>${activity.findStairsForDay('2019/09/21', randomNumber)}</td>
+      <td>${activity.calculateActiveMinutes('2019/09/21', randomNumber)}</td>
+    </tr>
+    <tr>
+      <td>${activity.findWeeklyActivity('2019/09/22')[2].date}</td>
+      <td>${activity.findStepsForDay('2019/09/20', randomNumber)}</td>
+      <td>${activity.findStairsForDay('2019/09/20', randomNumber)}</td>
+      <td>${activity.calculateActiveMinutes('2019/09/20', randomNumber)}</td>
+    </tr>
+    <tr>
+      <td>${activity.findWeeklyActivity('2019/09/22')[3].date}</td>
+      <td>${activity.findStepsForDay('2019/09/19', randomNumber)}</td>
+      <td>${activity.findStairsForDay('2019/09/19', randomNumber)}</td>
+      <td>${activity.calculateActiveMinutes('2019/09/19', randomNumber)}</td>
+    </tr>
+    <tr>
+      <td>${activity.findWeeklyActivity('2019/09/22')[4].date}</td>
+      <td>${activity.findStepsForDay('2019/09/18', randomNumber)}</td>
+      <td>${activity.findStairsForDay('2019/09/18', randomNumber)}</td>
+      <td>${activity.calculateActiveMinutes('2019/09/18', randomNumber)}</td>
+    </tr>
+    <tr>
+      <td>${activity.findWeeklyActivity('2019/09/22')[5].date}</td>
+      <td>${activity.findStepsForDay('2019/09/17', randomNumber)}</td>
+      <td>${activity.findStairsForDay('2019/09/17', randomNumber)}</td>
+      <td>${activity.calculateActiveMinutes('2019/09/17', randomNumber)}</td>
+    </tr>
+    <tr>
+      <td>${activity.findWeeklyActivity('2019/09/22')[6].date}</td>
+      <td>${activity.findStepsForDay('2019/09/16', randomNumber)}</td>
+      <td>${activity.findStairsForDay('2019/09/16', randomNumber)}</td>
+      <td>${activity.calculateActiveMinutes('2019/09/16', randomNumber)}</td>
+    </tr>
+  </tbody>
+</table>`
 }
