@@ -134,7 +134,6 @@ beforeEach(() => {
   ];
   sleep = new Sleep(data, 1);
   sleep2 = new Sleep(data, 2);
-  sleep3 = new Sleep(data, 3)
 });
 
 describe('Sleep', function() {
