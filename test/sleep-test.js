@@ -146,12 +146,12 @@ describe('Sleep', function() {
     expect(sleep).to.be.an.instanceof(Sleep);
   });
 
-  describe('findUserSleepData Method', () => {
-    it('should get all sleep data for a user by id', () => {
-      expect(sleep.findUserSleepData()).to.deep.equal(sleep.user);
+describe('findUserSleepData Method', () => {
+  it('should get all sleep data for a user by id', () => {
+    expect(sleep.findUserSleepData()).to.deep.equal(sleep.user);
     });
-    it('should get all hydration data for another user', () => {
-      expect(sleep2.findUserSleepData()).to.deep.equal(sleep2.user);
+  it('should get all hydration data for another user', () => {
+    expect(sleep2.findUserSleepData()).to.deep.equal(sleep2.user);
     })
   });
 
@@ -161,9 +161,9 @@ describe('Sleep', function() {
     });
 
     it('Should calculate average sleep quality per day over all time for another user', function(){
-        expect(sleep2.calculateAvgSleepQuality()).to.equal('2.43')
-      });
+      expect(sleep2.calculateAvgSleepQuality()).to.equal('2.43')
     });
+  });
 
   describe('calculateHoursSleptByDay Method', function(){
     it('should calculate daily sleep based on date', function(){
@@ -218,14 +218,6 @@ describe('Sleep', function() {
     })
   })
 
-//STILL NEED TO TEST
-  // describe('findAllUsersWhoSleepGood Method', function() {
-  //
-  //   it('should be able to find the users that have a weekly sleep quality > 3', () => {
-  //     expect(sleep.findAllUsersWhoSleepGood('2019/06/23')).to.deep.equal({ userID: 3, date: '2019/06/23', hoursSlept: 11.1, sleepQuality: 3.4 })
-  //   })
-  // })
-
   describe('findMostRestedUserByDate Method', function() {
 
     it('should be able to find the user that slept the most hours by date', () => {
@@ -240,7 +232,6 @@ describe('Sleep', function() {
     it('Should calcualte percentage of total hours slept in a week time vs recomended amount', function(){
       expect(sleep2.calculatePercentageOfRecommendedSleep('2019/06/23')).to.equal('90.18%')
     });
-
   });
 
   describe('calculateTotalAvgHoursSlept Method', function(){
@@ -253,6 +244,4 @@ describe('Sleep', function() {
       expect(sleep2.calculateTotalAvgHoursSlept()).to.equal('6.69')
     });
   });
-
-
-  });
+});
