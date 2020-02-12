@@ -162,6 +162,6 @@ describe('Hydration', function() {
   { userID: 1, date: '2019/06/29', numOunces: 51 }
 ]);
     });
-  })
+  });
 
 });
