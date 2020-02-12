@@ -33,23 +33,35 @@ class Sleep {
   };
 
   calculateAvgSleepQualityForAllUsers() {
-      let totalSleepQuality = this.data.reduce((acc, user) => {
+    let totalSleepQuality = this.data.reduce((acc, user) => {
           acc+= user.sleepQuality
           return acc;
         },0);
-      return  (totalSleepQuality / this.data.length).toFixed(2);
+        console.log((totalSleepQuality / this.data.length).toFixed(2));
+      return  Number((totalSleepQuality / this.data.length).toFixed(2));
   };
 
-  // findAllUsersWhoSleepGood() {
-  ////Find a week's worth of data for every user
+
+
+//STILL IN PROGRESS//
+  findAllUsersWhoSleepGood(date) {
+    let indexOfCurrentDay = this.data.findIndex(day => day.date === date);
+    let weekData = this.data.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
+    console.log(this.data);
+  //Find a week's worth of data for every user
+    weekData.map((day) => {
+      // console.log(`${day.userID}: ${day.sleepQuality}`);
+      return {
+      }
+    })
   //Calculate average sleep quality for each user for the week
+
   //return only the users with an average sleep quality > 3
-  // }
+  }
 
   findMostRestedUserByDate(date) {
     let selectedDay = this.data.filter(day => day.date === date)
     return selectedDay.sort((a, b) => b.hoursSlept - a.hoursSlept)[0]
-    //iterate through array of objects and find user with most sleep
   }
 
   calculatePercentageOfRecommendedSleep(date) {
@@ -60,7 +72,6 @@ class Sleep {
       return acc
     },0)
     return `${((totalHours / 56) * 100).toFixed(2)}%`
-    //divide totalHours by 56 and return % of total recommended sleep.
   }
 
   calculateTotalAvgHoursSlept() {
@@ -70,7 +81,6 @@ class Sleep {
       },0);
     return (totalSleep/this.user.length).toFixed(2);
   }
-
 }
 
 

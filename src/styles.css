@@ -41,9 +41,15 @@ nav {
   color: white;
   font-size: 2em;
   margin-bottom: 20px;
+  margin-left: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+
+.first-name {
+  color: purple;
+  text-transform: uppercase;
 }
 
 body {
@@ -84,7 +90,8 @@ grid-row-gap: 9px;
 .div5,
 .div6,
 .div7,
-.div8 {
+.div8,
+.div9 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,6 +163,12 @@ grid-row-gap: 9px;
   animation-delay: 0.5s;
 }
 
+.div9 {
+  -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: 0.5s;
+}
+
 
 .vibe {
 	-webkit-animation: vibrate-1 0.3s linear infinite both;
@@ -212,4 +225,47 @@ grid-row-gap: 9px;
     -webkit-transform: translate(0);
             transform: translate(0);
   }
+}
+
+table.sleep-table {
+  margin-left: 35px;
+  width: 80%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  color: #000000;
+}
+
+table.sleep-table td, table.sleep-table th {
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  padding: 3px;
+}
+
+table.sleep-table thead {
+  background-color: #ffcc00;
+}
+
+table.water-table {
+  width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  color: #000000;
+}
+
+table.water-table td, table.water-table th {
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  padding: 3px;
+}
+
+table.water-table thead {
+  background-color: #ffcc00;
 }
