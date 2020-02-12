@@ -95,6 +95,7 @@ class Activity {
     return Number((totalMinutes / dailyData.length).toFixed(0))
   }
 
+  //custom metric
   findMostActiveUserByDate(date, user) {
     let selectedDay = this.data.filter(day => day.date === date)
     let winnerID = selectedDay.sort((a, b) => b.numSteps - a.numSteps)[0].userID
@@ -118,6 +119,20 @@ class Activity {
     let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
       return this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
   };
+
+  findTotalWeeklySteps(date, id) {
+    let indexOfCurrentDay = this.user.findIndex(day => day.date === date);
+    let totalWeeklyActivity = this.user.slice(indexOfCurrentDay -6, indexOfCurrentDay + 1)
+    let totalWeeklySteps = totalWeeklyActivity.reduce((acc, day) => {
+      acc += day.numSteps
+      return acc
+    }, 0)
+    return totalWeeklySteps
+  }
+  //assign a few friends to the user from user data file.
+  //get user's friends from friends array and populate those friends' weekly steps by id.
+  //display on the dashboard to see the friend's step count for the whole week
+  //Show who had the most steps for that week.
 
 
 }
