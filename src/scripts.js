@@ -25,7 +25,9 @@ let minutesActive = document.querySelector('.minutes-active-for-latest-day-js');
 let milesWalked = document.querySelector('.miles-walked-for-latest-day-js');
 let stackUp = document.querySelector('.stack-up-js')
 let weeklyActivity = document.querySelector('.weekly-activity-js');
-
+let mostActive = document.querySelector('.most-active-user-js');
+let weeklySteps = document.querySelector('.weekly-step-data-js');
+let friendsSteps = document.querySelector('.friend1-step-data-js')
 
 displayUserInfo(user);
 displayWaterConsumption();
@@ -164,6 +166,7 @@ function displayActivity() {
   dailySteps.innerHTML = `${activity.findStepsForDay("2019/09/22", randomNumber)}`
   minutesActive.innerHTML = `${activity.calculateActiveMinutes("2019/09/22", user)}`
   milesWalked.innerHTML = `${activity.calculateMilesWalked("2019/09/22", user)}`
+  mostActive.innerHTML = `${activity.findMostActiveUserByDate("2019/09/22", userRepo)}`
   stackUp.innerHTML = `
   <table class="sleep-table">
   <thead>
@@ -192,7 +195,12 @@ function displayActivity() {
     </tr>
   </tbody>
 </table>`
-weeklyActivity.innerHTML = `
+  weeklySteps.innerHTML = `Your Steps This Week: ${activity.findTotalWeeklySteps("2019/09/22", randomNumber)}`
+
+  // friendsSteps.innerHTML = `${activity.findTotalWeeklySteps("2019/09/22", 30)}`
+
+
+  weeklyActivity.innerHTML = `
 <table class="sleep-table">
   <thead>
     <tr>
